@@ -1,0 +1,43 @@
+
+#include <stdio.h>
+
+void print_prices(int price[], int n)
+{
+    int i;
+
+    for (i = 0; i < n; i++)
+    {
+        printf("%d원 ", price[i]);
+    }
+
+    printf("\n");
+}
+
+void apply_discount(int *price, int n, int percent)
+{
+    int i;
+
+    for (i = 0; i < n; i++)
+    {
+        price[i] = price[i] * (100 - percent) / 100;
+    }
+}
+
+int main(void)
+{
+    int price[5] = {10000, 20000, 30000, 40000, 50000};
+    int percent;
+
+    printf("할인 전 가격 : ");
+    print_prices(price, 5);
+
+    printf("할인율을 입력하시오 : ");
+    scanf("%d", &percent);
+
+    apply_discount(price, 5, percent);
+
+    printf("할인 후 가격 : ");
+    print_prices(price, 5);
+
+    return 0;
+}
